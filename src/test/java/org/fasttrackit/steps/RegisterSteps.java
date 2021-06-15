@@ -32,8 +32,9 @@ public class RegisterSteps {
     public void registerUserWithWeakPass(String email,String password) {
         myAccountPage.setEmailField(email);
         myAccountPage.setPassField(password);
-        myAccountPage.setRegisterButton();
-
-
+    }
+    @Step
+    public void checkAccountAlreadyRegisteredMessage(String text){
+        Assert.assertTrue(myAccountPage.checkAccountAlreadyRegisteredMessage().equals(text));
     }
 }

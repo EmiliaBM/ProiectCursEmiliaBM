@@ -15,6 +15,8 @@ public class MyAccountPage extends PageObject {
     private WebElementFacade helloText;
     @FindBy(css = "#customer_login > div.u-column2.col-2 > form > p:nth-child(2) > div")
     private WebElementFacade weakPass;
+    @FindBy(css = "ul[role='alert'] > li")
+    private WebElementFacade accountAlreadyRegistered;
 
 
     public void setEmailField(String text){
@@ -32,6 +34,11 @@ public class MyAccountPage extends PageObject {
     }
     public String checkWeakPassMessage() {
         System.out.println(weakPass.getText());
+        waitFor(3000);
         return weakPass.getText();
+    }
+    public String checkAccountAlreadyRegisteredMessage(){
+        System.out.println(accountAlreadyRegistered.getText());
+        return accountAlreadyRegistered.getText();
     }
 }
