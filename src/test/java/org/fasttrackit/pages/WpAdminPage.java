@@ -9,8 +9,13 @@ public class WpAdminPage extends PageObject {
     @FindBy (css = "li#menu-posts-product > ul > li:nth-of-type(3) > a")
     private WebElementFacade addProductLink;
 
+    @FindBy ( css = "li#menu-posts > ul > li:nth-of-type(3) > a")
+    private WebElementFacade addNewPostLink;
+
     public void addProduct(){
         clickOn(addProductLink);
     }
-
+    public void AddPost(){
+        clickOn(addNewPostLink);
+    }
 }
