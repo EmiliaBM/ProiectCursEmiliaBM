@@ -13,11 +13,23 @@ public class ProductAlbumPage extends PageObject {
     @FindBy(css = "div[role='alert']")
     private WebElementFacade addedToCartMessage;
 
+    @FindBy (css = "li#tab-title-reviews > a")
+    private WebElementFacade reviewsLink;
+
+    @FindBy (css = "textarea#comment")
+    private WebElementFacade reviewBox;
+
     public void clickOnAddToCartButton(){
         clickOn(addToCartButton);
     }
     public String checkAddedToCartMessage(){
         System.out.println("generate text:" + addedToCartMessage.getText());
         return addedToCartMessage.getText();
+    }
+    public void clickOnReviewsLink(){
+        clickOn((reviewsLink));
+    }
+    public void writeReview(){
+        clickOn(reviewBox);
     }
 }

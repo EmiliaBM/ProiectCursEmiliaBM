@@ -1,46 +1,56 @@
 package org.fasttrackit.steps;
 
 import net.thucydides.core.annotations.Step;
-import net.thucydides.core.annotations.Steps;
 import org.fasttrackit.pages.*;
 import org.junit.Assert;
 
-public class AddProductToCartSteps {
+public class EraseProductFromCartSteps {
 
     private HomePage homePage;
     private MyAccountPage myAccountPage;
+    private CartPage cartPage;
+    private LoginPage loginPage;
     private ShopPage shopPage;
     private ProductAlbumPage productAlbumPage;
-    private LoginPage loginPage;
+
 
     @Step
-    public void navigateToHomePage(){
+    public void navigateToHomePage() {
         homePage.open();
         homePage.setMyAccountLink();
     }
+
     @Step
     public void enterCredentials(String email, String password) {
         loginPage.setEmailField(email);
         loginPage.setPasswordField(password);
         loginPage.clickLoginButton();
     }
+
     @Step
-    public void navigateToShop(){
+    public void navigateToShop() {
         shopPage.clickOnShopButton();
         shopPage.clickOnProductAlbum();
     }
+
     @Step
-    public void addProductToCart(){
+    public void addProductToCart() {
         productAlbumPage.clickOnAddToCartButton();
     }
 
     @Step
-    public void addedToCartMessage(String text){
-        Assert.assertTrue(productAlbumPage.checkAddedToCartMessage().equals(text));
+    public void clickOnCartLink() {
+        cartPage.clickOnCartLink();
+        cartPage.deleteProductFromCart();
     }
+
     @Step
-    public void navigateToShopAndAddAlbumProductToCart() {
-        shopPage.clickOnShopButton();
-        shopPage.addProductAlbumToCart();
+    public void checkProductErasedMessage(String text) {
+        Assert.assertTrue(cartPage.checkProductErasedMessage().equals(text));
+    }
+
+    @Step
+    public void checkShowingResultsText(String text) {
+        Assert.assertTrue(shopPage.checkResultsText().equals(text));
     }
 }

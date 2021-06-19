@@ -15,6 +15,8 @@ public class MyAccountPage extends PageObject {
     private WebElementFacade helloText;
     @FindBy(css = "#customer_login > div.u-column2.col-2 > form > p:nth-child(2) > div")
     private WebElementFacade weakPass;
+    @FindBy (css = "li#wp-admin-bar-dashboard > .ab-item")
+    private WebElementFacade dashBoardLink;
 
 
 
@@ -35,6 +37,9 @@ public class MyAccountPage extends PageObject {
         System.out.println(weakPass.getText());
         waitFor(3000);
         return weakPass.getText();
+    }
+    public void clickOnDashboardLink(){
+        clickOn(dashBoardLink);
     }
 
 

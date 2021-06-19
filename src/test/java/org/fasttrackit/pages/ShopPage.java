@@ -14,14 +14,21 @@ public class ShopPage extends PageObject {
 
     @FindBy (css = "#primary > main > div > div > div.item.first.post-27.product.type-product.status-publish.has-post-thumbnail.product_cat-music.instock.downloadable.virtual.taxable.purchasable.product-type-simple > div > div.p-info > div.action > a")
     private WebElementFacade addProductAlbumToCart;
+
+    @FindBy (css = ".woocommerce-result-count")
+    private WebElementFacade showingResultsText;
+
     public void clickOnProductAlbum (){
         clickOn(productAlbum);
     }
-
     public void clickOnShopButton(){
         clickOn(shopButton);
     }
     public void addProductAlbumToCart (){
         clickOn(addProductAlbumToCart);
+    }
+    public String checkResultsText(){
+        System.out.println("generate text:" + showingResultsText.getText());
+        return showingResultsText.getText();
     }
 }

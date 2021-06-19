@@ -20,9 +20,7 @@ public class LoginPage extends PageObject {
 
     @FindBy(css = ".woocommerce-MyAccount-content > p:nth-of-type(1)")
     private WebElementFacade accountAlreadyRegistered;
-    //ai schimbat selectoru? sau contu
-    // nu, doar la metode am umblat. am vrut sa le copiez si sa le pun pe alt page ..si atunci am dat copy paste si la FindBY
-// asta e alt .ok, vad ca ala era. sa vad si celalalt test
+
 
 
     public void setEmailField(String email){
