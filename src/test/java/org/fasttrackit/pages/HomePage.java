@@ -13,4 +13,7 @@ public class HomePage extends PageObject {
     public void setMyAccountLink(){
         clickOn(myAccountLink);
     }
+    public void clickAccountLink(){
+        clickOn(myAccountLink);
+    }
 }
