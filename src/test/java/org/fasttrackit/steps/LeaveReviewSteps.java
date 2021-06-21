@@ -2,8 +2,9 @@ package org.fasttrackit.steps;
 
 import net.thucydides.core.annotations.Step;
 import org.fasttrackit.pages.*;
+import org.junit.Assert;
 
-public class LeaveAreplySteps {
+public class LeaveReviewSteps {
 
     private HomePage homePage;
     private MyAccountPage myAccountPage;
@@ -12,7 +13,7 @@ public class LeaveAreplySteps {
     private ShopPage shopPage;
 
     @Step
-    public void navigateToHomePage(){
+    public void navigateToHomePage() {
         homePage.open();
         homePage.setMyAccountLink();
     }
@@ -27,5 +28,17 @@ public class LeaveAreplySteps {
         shopPage.clickOnShopButton();
         shopPage.clickOnProductAlbum();
     }
+    @Step
+    public void writeReview(){
+        productAlbumPage.clickOnReviewsLink();
+        productAlbumPage.rateFiveStar();
+        productAlbumPage.clickOnReviewBox();
+        productAlbumPage.setReviewField("Very Good");
+        productAlbumPage.clickSubmit();
+    }
+    @Step
+    public void checkUsersReviewMessage(String text) {
+        Assert.assertTrue(productAlbumPage.checkReviewMessage().equals(text));
 
+    }
 }
