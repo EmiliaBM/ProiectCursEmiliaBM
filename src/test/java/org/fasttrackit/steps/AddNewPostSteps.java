@@ -53,4 +53,11 @@ public class AddNewPostSteps {
     public void checkUpdatedPostMessage(String text) {
         Assert.assertTrue(wpAdminPage.checkUpdatedPostMessage().equals(text));
     }
+    @Step
+    public void clickOnPostsAndModifyFirstTitle ( String newTitle){
+        wpAdminPage.setPostsLink();
+        wpAdminPage.clickOnFirstPostTitle();
+        wpAdminPage.modifyLastPostTitle(newTitle);
+        wpAdminPage.clickOnUpdateButton();
+    }
 }

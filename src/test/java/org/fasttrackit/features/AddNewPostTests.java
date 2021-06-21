@@ -19,11 +19,19 @@ public class AddNewPostTests extends BaseTest {
         addNewPostSteps.checkPostPublishedMessage("Post published. View post");
     }
     @Test
-    public void modifyNewPostTest(){
+    public void modifyLastsPostTitleTest(){
         addNewPostSteps.navigateToHomePage();
         addNewPostSteps.enterCredentials("admin","parola11");
         addNewPostSteps.navigateToDashBoard();
         addNewPostSteps.clickOnPosts("Let's play now");
+        addNewPostSteps.checkUpdatedPostMessage("Post updated. View post");
+    }
+    @Test
+    public void modifyFirstPostsTitleTest(){
+        addNewPostSteps.navigateToHomePage();
+        addNewPostSteps.enterCredentials("admin","parola11");
+        addNewPostSteps.navigateToDashBoard();
+        addNewPostSteps.clickOnPostsAndModifyFirstTitle("La vie en rose");
         addNewPostSteps.checkUpdatedPostMessage("Post updated. View post");
     }
 }

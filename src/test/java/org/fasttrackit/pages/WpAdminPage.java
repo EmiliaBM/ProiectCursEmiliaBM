@@ -33,6 +33,9 @@ public class WpAdminPage extends PageObject {
     @FindBy ( css =".author-self.category-uncategorized.format-standard.hentry.iedit.level-0.post-408.status-publish.type-post .row-title")
     private WebElementFacade lastPostTitle;
 
+    @FindBy (css ="#post-1 > td.title.column-title.has-row-actions.column-primary.page-title > strong > a")
+    private WebElementFacade firstPostTitle;
+
     public void addProduct(){
         clickOn(addProductLink);
     }
@@ -66,4 +69,11 @@ public class WpAdminPage extends PageObject {
         System.out.println("generate text:" + updatedPostMessage.getText());
         return updatedPostMessage.getText();
     }
+    public void clickOnFirstPostTitle(){
+        clickOn(firstPostTitle);
+    }
+    public void modifyFirstPostTitle(String newTitle){
+        typeInto(newPostTitle,newTitle);
+    }
+
 }
