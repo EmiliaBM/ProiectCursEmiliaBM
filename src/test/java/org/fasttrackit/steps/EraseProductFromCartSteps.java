@@ -50,6 +50,11 @@ public class EraseProductFromCartSteps {
     }
 
     @Step
+    public void returnToShop(){
+        shopPage.clickOnReturnToShopButton();
+    }
+
+    @Step
     public void checkShowingResultsText(String text) {
         Assert.assertTrue(shopPage.checkResultsText().equals(text));
     }

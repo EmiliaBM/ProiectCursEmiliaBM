@@ -18,4 +18,21 @@ public class LeaveReviewTests extends BaseTest {
         leaveReviewSteps.writeReview();
         leaveReviewSteps.checkUsersReviewMessage("Your review is awaiting approval");
     }
+
+    @Test
+    public void writeReviewForProductBeanie() {
+        leaveReviewSteps.navigateToHomePage();
+        leaveReviewSteps.enterCredentials("user5@gmail.com", "Parola1+Parola");
+        leaveReviewSteps.navigateToShopAndClickOnProductBeanie();
+        leaveReviewSteps.writeReviewForProductBeanie();
+        leaveReviewSteps.checkUsersReviewMessageForProductBeanie("Your review is awaiting approval");
+    }
+    @Test
+    public void writeDuplicateReviewForProductBeanie() {
+        leaveReviewSteps.navigateToHomePage();
+        leaveReviewSteps.enterCredentials("user5@gmail.com", "Parola1+Parola");
+        leaveReviewSteps.navigateToShopAndClickOnProductBeanie();
+        leaveReviewSteps.writeReviewForProductBeanie();
+        leaveReviewSteps.checkDuplicateReviewMessageForProductBeanie("Duplicate comment detected; it looks as though you’ve already said that!");
+    }
 }

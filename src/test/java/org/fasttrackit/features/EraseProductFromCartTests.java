@@ -35,6 +35,7 @@ public class EraseProductFromCartTests extends BaseTest {
         eraseProductFromCartSteps.navigateToShop();
         eraseProductFromCartSteps.addProductToCart();
         eraseProductFromCartSteps.clickOnCartLink();
-      //  eraseProductFromCartSteps.checkShowingResultsText("Showing 1–16 of 39 results");
+        eraseProductFromCartSteps.returnToShop();
+        eraseProductFromCartSteps.checkShowingResultsText("Showing 1–16 of 39 results");
     }
 }

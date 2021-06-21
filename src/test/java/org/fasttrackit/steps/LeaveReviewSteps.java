@@ -11,6 +11,7 @@ public class LeaveReviewSteps {
     private LoginPage loginPage;
     private ProductAlbumPage productAlbumPage;
     private ShopPage shopPage;
+    private ProductBeaniePage productBeaniePage;
 
     @Step
     public void navigateToHomePage() {
@@ -33,12 +34,34 @@ public class LeaveReviewSteps {
         productAlbumPage.clickOnReviewsLink();
         productAlbumPage.rateFiveStar();
         productAlbumPage.clickOnReviewBox();
-        productAlbumPage.setReviewField("Very Good");
+        productAlbumPage.setReviewField("Awesome product, really");
         productAlbumPage.clickSubmit();
     }
     @Step
     public void checkUsersReviewMessage(String text) {
         Assert.assertTrue(productAlbumPage.checkReviewMessage().equals(text));
+    }
 
+    @Step
+    public void writeReviewForProductBeanie(){
+        productBeaniePage.clickOnReviewsLink();
+        productBeaniePage.rateFiveStar();
+        productBeaniePage.clickOnReviewBox();
+        productBeaniePage.setReviewField("very good, very nice");
+        productBeaniePage.clickSubmit();
+    }
+
+    @Step
+    public void navigateToShopAndClickOnProductBeanie(){
+        shopPage.clickOnShopButton();
+        shopPage.clickOnProductBeanie();
+    }
+    @Step
+    public void checkUsersReviewMessageForProductBeanie(String text) {
+        Assert.assertTrue(productBeaniePage.checkReviewMessageForProductBeanie().equals(text));
+    }
+    @Step
+    public void checkDuplicateReviewMessageForProductBeanie(String text) {
+        Assert.assertTrue(productBeaniePage.checkDuplicateReviewMessageForProductBeanie().equals(text));
     }
 }
