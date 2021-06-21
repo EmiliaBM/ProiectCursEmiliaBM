@@ -2,6 +2,7 @@ package org.fasttrackit.steps;
 
 import net.thucydides.core.annotations.Step;
 import org.fasttrackit.pages.*;
+import org.junit.Assert;
 
 public class AddNewProductSteps {
 
@@ -26,11 +27,30 @@ public class AddNewProductSteps {
 
     @Step
     public void navigateToDashBoard(){
-        myAccountPage.clickOnDashboardLink();
+       myAccountPage.clickOnFastrackitLink();
     }
 
     @Step
     public void clickOnAddProduct(){
-        wpAdminPage.addProduct();
+        wpAdminPage.setProductsLink();
+        wpAdminPage.addNewProduct();
+        wpAdminPage.setProductTitle("Juice");
+        wpAdminPage.clickOnPublishNewProductButton();
     }
+    @Step
+    public void checkPostProductPublishedMessage(String text) {
+        Assert.assertTrue(wpAdminPage.checkPostPublishedProductMessage().equals(text));
+    }
+    @Step
+    public void modifyLastProductsTitle() {
+        wpAdminPage.setProductsLink();
+        wpAdminPage.clickOnLastProductsTitle();
+        wpAdminPage.modifyLastProductsTitle("Jeans Tommy");
+        wpAdminPage.clickOnPublishNewProductButton();
+    }
+    @Step
+    public void checkUpdatedMessage(String text) {
+        Assert.assertTrue(wpAdminPage.checkUpdatedProductMessage().equals(text));
+    }
+
 }

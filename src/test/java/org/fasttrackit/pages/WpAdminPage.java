@@ -6,8 +6,11 @@ import net.serenitybdd.core.pages.WebElementFacade;
 
 public class WpAdminPage extends PageObject {
 
-    @FindBy (css = "li#menu-posts-product > ul > li:nth-of-type(3) > a")
-    private WebElementFacade addProductLink;
+    @FindBy (css = "li#menu-posts-product  .wp-menu-name")
+    private WebElementFacade productsLink;
+
+    @FindBy (css =".wrap > a:nth-of-type(1)")
+    private WebElementFacade addNewProductButton;
 
     @FindBy ( css = "li#menu-posts  .wp-menu-name")
     private WebElementFacade postsLink;
@@ -36,8 +39,26 @@ public class WpAdminPage extends PageObject {
     @FindBy (css ="#post-1 > td.title.column-title.has-row-actions.column-primary.page-title > strong > a")
     private WebElementFacade firstPostTitle;
 
-    public void addProduct(){
-        clickOn(addProductLink);
+    @FindBy (css ="#message > p")
+    private WebElementFacade productPublishedMessage;
+
+    @FindBy (css ="input#title")
+    private WebElementFacade productTitle;
+
+    @FindBy (css ="input#publish")
+    private WebElementFacade publishProductButton;
+
+    @FindBy (css=".author-self.hentry.iedit.level-0.post-431.product_cat-uncategorized.status-publish.type-product .row-title")
+    private WebElementFacade lastProductsTitle;
+
+    @FindBy (css ="#title")
+    private WebElementFacade theTitleOfTheProduct;
+
+    public void setProductsLink(){
+        clickOn(productsLink);
+    }
+    public void addNewProduct(){
+        clickOn(addNewProductButton);
     }
     public void setPostsLink(){
         clickOn(postsLink);
@@ -75,5 +96,24 @@ public class WpAdminPage extends PageObject {
     public void modifyFirstPostTitle(String newTitle){
         typeInto(newPostTitle,newTitle);
     }
-
+    public String checkPostPublishedProductMessage(){
+        System.out.println("generate text:" + productPublishedMessage.getText());
+        return productPublishedMessage.getText();
+    }
+    public void setProductTitle (String titleOfTheProduct){
+        typeInto(productTitle, titleOfTheProduct);
+    }
+    public void clickOnPublishNewProductButton(){
+        clickOn(publishProductButton);
+    }
+    public void clickOnLastProductsTitle(){
+        clickOn(lastProductsTitle);
+    }
+    public void modifyLastProductsTitle(String aNewTitle){
+        typeInto(theTitleOfTheProduct, aNewTitle);
+    }
+    public String checkUpdatedProductMessage(){
+        System.out.println("generate text:" + productPublishedMessage.getText());
+        return productPublishedMessage.getText();
+    }
 }
