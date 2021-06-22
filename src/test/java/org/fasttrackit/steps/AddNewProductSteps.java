@@ -9,7 +9,6 @@ public class AddNewProductSteps {
     private HomePage homePage;
     private MyAccountPage myAccountPage;
     private WpAdminPage wpAdminPage;
-    private AddNewProductPage addNewProductPage;
     private LoginPage loginPage;
 
     @Step
@@ -45,7 +44,7 @@ public class AddNewProductSteps {
     public void modifyLastProductsTitle() {
         wpAdminPage.setProductsLink();
         wpAdminPage.clickOnLastProductsTitle();
-        wpAdminPage.modifyLastProductsTitle("Jeans Tommy");
+        wpAdminPage.modifyLastProductsTitle("Jeans Tommy Original");
         wpAdminPage.clickOnPublishNewProductButton();
     }
     @Step

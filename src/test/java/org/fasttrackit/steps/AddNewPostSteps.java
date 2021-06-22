@@ -10,7 +10,6 @@ public class AddNewPostSteps {
     private HomePage homePage;
     private MyAccountPage myAccountPage;
     private WpAdminPage wpAdminPage;
-    private AddNewPostPage addNewPostPage;
     private LoginPage loginPage;
 
     @Step
