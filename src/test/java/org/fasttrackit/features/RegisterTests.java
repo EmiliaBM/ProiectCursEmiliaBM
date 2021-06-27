@@ -13,8 +13,8 @@ public class RegisterTests extends BaseTest {
     @Test
     public void registerTest(){
         registerSteps.navigateToRegisterPage();
-        registerSteps.registerUser("users10@gmail.com","Parola1+Parola");
-        registerSteps.checkUserRegist("users10");
+        registerSteps.registerUser("users11@gmail.com","Parola1+Parola");
+        registerSteps.checkUserRegist("users11");
     }
     @Test
     public void registerTestWeakPass() {
