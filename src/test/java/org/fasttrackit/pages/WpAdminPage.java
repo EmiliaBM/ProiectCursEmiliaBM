@@ -54,6 +54,12 @@ public class WpAdminPage extends PageObject {
     @FindBy (css ="#title")
     private WebElementFacade theTitleOfTheProduct;
 
+    @FindBy (css =".author-self.hentry.iedit.level-0.post-349.product_cat-uncategorized.status-publish.type-product .row-title")
+    private WebElementFacade theTitleOfFirstProduct;
+
+    @FindBy (css ="input#title")
+    private WebElementFacade theOldTitleOfTheFirstProduct;
+
     public void setProductsLink(){
         clickOn(productsLink);
     }
@@ -115,5 +121,11 @@ public class WpAdminPage extends PageObject {
     public String checkUpdatedProductMessage(){
         System.out.println("generate text:" + productPublishedMessage.getText());
         return productPublishedMessage.getText();
+    }
+    public void clickOnFirstProductsTitle(){
+        clickOn(theTitleOfFirstProduct);
+    }
+    public void modifyFirstProductsTitle(String aNewTitleForFirstProduct){
+        typeInto(theOldTitleOfTheFirstProduct, aNewTitleForFirstProduct);
     }
 }

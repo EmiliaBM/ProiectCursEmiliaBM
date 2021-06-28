@@ -26,4 +26,12 @@ public class AddNewProductTests extends BaseTest {
         addNewProductSteps.modifyLastProductsTitle();
         addNewProductSteps.checkUpdatedMessage("Thumbnail regeneration is running in the background. Depending on the amount of images in your store this may take a while.");
     }
+    @Test
+    public void modifyFirstProductTitle() {
+        addNewProductSteps.navigateToHomePage();
+        addNewProductSteps.enterCredentials("admin", "parola11");
+        addNewProductSteps.navigateToDashBoard();
+        addNewProductSteps.modifyFirstProductsTitle();
+        addNewProductSteps.checkUpdatedMessage("Thumbnail regeneration is running in the background. Depending on the amount of images in your store this may take a while.");
+    }
 }

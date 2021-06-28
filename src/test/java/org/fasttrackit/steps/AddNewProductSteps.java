@@ -51,5 +51,12 @@ public class AddNewProductSteps {
     public void checkUpdatedMessage(String text) {
         Assert.assertTrue(wpAdminPage.checkUpdatedProductMessage().equals(text));
     }
+    @Step
+    public void modifyFirstProductsTitle() {
+        wpAdminPage.setProductsLink();
+        wpAdminPage.clickOnFirstProductsTitle();
+        wpAdminPage.modifyFirstProductsTitle("Canvas");
+        wpAdminPage.clickOnPublishNewProductButton();
+    }
 
 }
